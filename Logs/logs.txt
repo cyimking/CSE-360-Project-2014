@@ -1,5 +1,0 @@
-I create this file to track logs for each day. I suppose we can not use this but it may be useful at the end of the day. 
-
-10/12/2014
-- Create project on Github
-- Turned in assignment part 1 via blackboard
