@@ -13,3 +13,6 @@ Things I am going to do for 1.0.1
 - Add in a function.php file 
 - Change all login / logout keywords to Signin / Signout
 - Change errors from sessions to arrays. Which means I have to implement an output error function
+- This is a property of 360
+
+
