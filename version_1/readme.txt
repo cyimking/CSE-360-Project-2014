@@ -63,7 +63,7 @@ profiles
 ----------------------------------------------------
 Version 1.0.0 Notes
 ----------------------------------------------------
-1. I did bother to implement in CSS into the code which is why the code does not matches the format.
+1. I did not bother to implement in CSS into the code which is why the code does not matches the format.
 I did this because we can also handle the design after the PHP code is finished. We can also add in
 JavaScript if we have time because this will make the site look better and make things easier for the
 User (check forms, etc...). 
