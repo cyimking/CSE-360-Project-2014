@@ -1,0 +1,77 @@
+@charset "utf-8";
+/* CSS Document */
+
+html{
+	font-family: Segoe UI;
+}
+
+body{
+	background-color: #CCCCCC;
+	margin: 0;
+	text-align:center;
+}
+
+#wrapper {
+	width: 80%;
+	margin: 0 auto;
+	background-color: white;
+	min-height: 500px;
+}
+
+/* Utitites */
+.float_left {
+	float: left;
+}
+
+.float_right {
+	float: right;
+}
+
+
+#header {
+	border-bottom: thin solid #6487c0;
+	padding: 10px;
+	background-color: white;
+	overflow: hidden;
+	clear: both;
+	height: 25px;
+}
+
+#primary_links_left {
+	padding-left: 11%;
+	float: left;
+}
+
+#primary_links_right {
+	padding-right: 15px;
+	float: right;
+}
+
+#primary_links_right_end {
+	padding-right: 11%;
+	float: right;
+}
+
+#event_table{
+	border: 1px solid black;
+    border-collapse: collapse;
+}
+
+#event_table th, #event_table td{
+	padding: 15px;
+	border: 1px solid black;
+    border-collapse: collapse;
+}
+
+#event_table tr:nth-child(even){
+	background-color: #eeeeee;
+}
+
+#event_table tr:nth-child(odd){
+	background-color: white;
+}
+
+#event_table th{
+	background-color: #666;
+	color: white;
+}
