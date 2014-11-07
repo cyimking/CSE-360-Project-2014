@@ -1,0 +1,505 @@
+@charset "utf-8";
+/* CSS Document */
+
+html{
+	font-family: Segoe UI;
+	font-weight: lighter;
+}
+
+body{
+	background-color: #EEEEEE;
+	margin: 0;
+	text-align:center;
+}
+
+#wrapper {
+	width: 80%;
+	margin: 0 auto;
+	background-color: #EEEEEE;
+	min-height: 600px;
+}
+
+/* Utitites */
+.float_left {
+	float: left;
+}
+
+.float_right {
+	float: right;
+}
+
+
+#header {
+	border-bottom: thin solid #B8A6A6;
+	padding: 10px;
+	background-color: white;
+	overflow: hidden;
+	clear: both;
+	height: 25px;
+	-webkit-box-shadow: 0px 3px 1px #bfccdf;
+	-moz-box-shadow: 0px 3px 1px #bfccdf;
+	box-shadow: 0px 3px 1px #bfccdf;
+	/*margin-bottom: 5px;*/
+	vertical-align: baseline;
+}
+
+#primary_links_left {
+	padding-left: 11%;
+	float: left;
+}
+
+#primary_links_right {
+	padding-right: 15px;
+	float: right;
+}
+
+#primary_links_right_end {
+	padding-right: 11%;
+	float: right;
+}
+
+#event_table{
+	border: 1px solid black;
+    border-collapse: collapse;
+}
+
+#event_table th, #event_table td{
+	padding: 15px;
+	border: 1px solid black;
+    border-collapse: collapse;
+}
+
+#event_table tr:nth-child(even){
+	background-color: #eeeeee;
+}
+
+#event_table tr:nth-child(odd){
+	background-color: white;
+}
+
+#event_table th{
+	background-color: #666;
+	color: white;
+}
+
+
+a.login_button{
+	padding: 5px;
+	border: #f1c40f solid 1px;
+	color: white;
+	background: #f1c40f;
+	border-radius: 3px;
+	clear: both;
+	width: 100%;
+}
+a.login_button:link{
+	text-decoration: none;
+}
+
+a.login_button:visited{
+	text-decoration: none;
+}
+
+a.login_button:hover{
+	border: #2b5797 solid 1px;
+	background: #2b5797;
+}
+
+.float-left {
+float:left;
+margin: 15px;
+min-height: 275px;
+background-color: #FFF;
+width: 30%; // or 33% for equal width independent of parent width
+
+}
+
+h1{
+	font-weight: normal;
+}
+
+.test {
+	margin-top: 10px;
+	font-size: 24px;
+}
+
+#something {
+	background: #2b5797;
+	min-height: 50px;
+	clear: both;
+	margin: 0px;
+}
+
+#wrapper_test{
+	background-color: white;
+	clear: both;
+	width: 80%;
+	margin: 0 auto;
+	min-height: 500px;
+}
+
+#tickets{
+	padding: 5px;
+	border: #2d89ef solid 1px;
+	color: white;
+	background: #2d89ef;
+	border-radius: 3px;
+}
+
+#tickets_sold{
+	padding: 5px;
+	border: #CACACA solid 1px;
+	color: white;
+	background: #CACACA;
+	border-radius: 3px;
+}
+
+#footer
+{
+	border-top: #797979 thick solid;
+	text-align: center;
+	background-color: #1d1d1d;
+	color: #787878;
+	height: 30px;
+	clear: both;
+	padding: 10px;
+}
+
+#homepage_event_button
+{
+	padding: 5px;
+	border: #6C9 solid 1px;
+	color: white;
+	background: #6C9;
+	border-radius: 3px;
+	clear: both;
+	width: 100%;
+}
+
+.register_input{
+	padding: 5px;
+	margin: 5px;
+	border: #C0C0C0 1px solid;
+	border-radius: 3px;
+	color: #ABABAB;
+}
+
+.register_input:active{
+	color: black;
+}
+
+
+#create_account_check_button_success{
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	/*border: #00a300  solid 1px;
+	color: white;
+	background: #00a300;*/
+	border-radius: 3px;
+	margin-top: 2px;
+}
+
+#create_account_check_button_fail{
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	/*border: #ee1111 solid 1px;
+	color: white;
+	background: #ee1111;*/
+	border-radius: 3px;
+	margin-top: 2px;
+}
+
+#create_account_check_good_pass
+{
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	border: #00aba9 solid 1px;
+	color: white;
+	background: #00aba9;
+	border-radius: 3px;
+	margin-top: 2px;
+}
+
+#register_input_submit
+{
+	color: white;
+	background-color: #00a300;
+	border: 1px solid #00a300;
+	border-radius: 3px;
+	padding: 7px;
+	margin: 5px;
+	width: 100px;
+}
+
+#register_input_submit_fail
+{
+	color: white;
+	background-color: #ee1111;
+	border: 1px solid #ee1111;
+	border-radius: 3px;
+	padding: 7px;
+	margin: 5px;
+	min-width: 150px;
+}
+
+.float-left_event {
+float:left;
+margin-top: -3px;
+min-height: 155px;
+background-color: #FAFAFA;
+width: 30%; // or 33% for equal width independent of parent width
+z-index: 0;
+position: relative;
+border-left: #E9E9E9 solid 1px;
+border-right: #E9E9E9 solid 1px;
+border-bottom: #E9E9E9 solid 1px;
+}
+
+.float-left_event_m {
+float:left;
+margin-top: -3px;
+margin-right: 20px;
+margin-left: 20px;
+min-height: 155px;
+background-color: #FAFAFA;
+width: 30%; // or 33% for equal width independent of parent width
+z-index: 0;
+position: relative;
+border-left: #E9E9E9 solid 1px;
+border-right: #E9E9E9 solid 1px;
+border-bottom: #E9E9E9 solid 1px;
+}
+
+h1{
+	font-weight: normal;
+}
+
+.test {
+	margin-top: 10px;
+	font-size: 24px;
+}
+
+#something {
+	background: #2b5797;
+	min-height: 50px;
+	clear: both;
+	margin: 0px;
+}
+
+#wrapper_test{
+	background-color: white;
+	clear: both;
+	width: 80%;
+	margin: 0 auto;
+	min-height: 500px;
+}
+
+#tickets{
+	padding: 5px;
+	border: #2d89ef solid 1px;
+	color: white;
+	background: #2d89ef;
+	border-radius: 3px;
+}
+
+#tickets_sold{
+	padding: 5px;
+	border: #CACACA solid 1px;
+	color: white;
+	background: #CACACA;
+	border-radius: 3px;
+}
+
+#footer
+{
+	border-top: #797979 thick solid;
+	text-align: center;
+	background-color: #1d1d1d;
+	color: #787878;
+	height: 30px;
+	clear: both;
+	padding: 10px;
+}
+
+#homepage_event_button
+{
+	padding: 5px;
+	border: #6C9 solid 1px;
+	color: white;
+	background: #6C9;
+	border-radius: 3px;
+	clear: both;
+	width: 100%;
+}
+
+.register_input{
+	padding: 5px;
+	margin: 5px;
+	border: #C0C0C0 1px solid;
+	border-radius: 3px;
+	color: #ABABAB;
+}
+
+.register_input_date{
+	padding: 5px;
+	margin: 5px;
+	border: #C0C0C0 1px solid;
+	border-radius: 3px;
+	color: black;
+	font-family: Segoe UI;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.register_input:active{
+	color: black;
+}
+
+
+#create_account_check_button_success{
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	/*border: #00a300  solid 1px;
+	color: white;
+	background: #00a300;*/
+	border-radius: 3px;
+	margin-top: 2px;
+}
+
+#create_account_check_button_fail{
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	/*border: #ee1111 solid 1px;
+	color: white;
+	background: #ee1111;*/
+	border-radius: 3px;
+	margin-top: 2px;
+}
+
+#create_account_check_good_pass
+{
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	border: #00aba9 solid 1px;
+	color: white;
+	background: #00aba9;
+	border-radius: 3px;
+	margin-top: 2px;
+}
+
+#register_input_submit
+{
+	color: white;
+	background-color: #00a300;
+	border: 1px solid #00a300;
+	border-radius: 3px;
+	padding: 7px;
+	margin: 5px;
+	width: 100px;
+	height: 30px;
+}
+
+
+#register_input_submit_fail
+{
+	color: white;
+	background-color: #ee1111;
+	border: 1px solid #ee1111;
+	border-radius: 3px;
+	padding: 7px;
+	margin: 5px;
+}
+
+#step1_design{
+	background-color: #00aba9;
+	color: white;
+	padding-top: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 10px;
+	float: left;
+}
+
+#step2_design{
+	background-color: #ffc40d;
+	color: white;
+	padding-top: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 10px;
+	float: left;
+}
+
+#step3_design{
+	background-color: #ff0097;
+	color: white;
+	padding-top: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 10px;
+	float: left;
+}
+
+#step4_design{
+	background-color: #2B8D0E;
+	color: white;
+	padding-top: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 10px;
+	float: left;
+}
+
+.file_event{
+	position: relative;
+	overflow: hidden;
+	margin: auto 0;
+	width: 75px;
+	color: white;
+	background-color: #D5D5D5;
+	border: 1px solid #D5D5D5;
+	border-radius: 3px;
+	padding: 5px;
+	margin: 5px;
+}
+
+.file_event input.file_button{
+	position:absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	cursor:pointer; 
+}
+
+input.file_button{
+	z-index: 10;
+}
+
+#content_top{
+	/*-webkit-box-shadow: inset 0px 5px 5px 0px #bfccdf;
+	-moz-box-shadow:    inset 0px 5px 5px 0px #bfccdf;
+	box-shadow:         inset 0px 5px 5px 0px #bfccdf; */
+	border-bottom: #E3E3E3 1px solid; 
+	height: 150px;
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+	
+	background: url("css/images/cse.png");
+}
