@@ -55,9 +55,9 @@ if(isset($_POST['submit']))
 			break;
 			
 		case "Sign In":
-			$username = sanitize($_POST['user']);
+			$email = sanitize($_POST['email']);
 			$password = sanitize($_POST['pass']);
-			login_check($username,$password);
+			login_check($email,$password);
 			break;
 			
 		default: 
@@ -183,7 +183,7 @@ function display_login_table()
 		<br>
 		<form name="Sign In" method="post" action="members.php"> 
 		
-		<input type="text" size="70%" name="user" placeholder="Account ID (Username)" class="register_input" style="position:relative; margin-left: 10px"
+		<input type="text" size="70%" name="email" placeholder="Account ID (Email Address)" class="register_input" style="position:relative; margin-left: 10px"
 		required="required">
 		<span style="position:absolute;padding:7px;">Recover Account ID: <a href="#">Here </a></span><br>
 		
@@ -271,6 +271,7 @@ function registration($username,$email,$password)
 {
 	global $connection;
 	
+	$username = $email;
 	
 	/* "?", etc.. are special tokens for better SQL INJECTION PROTECTION*/
 	$query = "INSERT INTO user (username,email,password,salt)
@@ -311,10 +312,10 @@ function registration($username,$email,$password)
 * @para $username, $password
 * Errors = Create new error session then redirect to homepage
 */
-function login_check($username,$password)
+function login_check($email,$password)
 {
 	/* Check if all fields are filled */
-	if($username == "" || $password == ""){
+	if($email == "" || $password == ""){
 		$_SESSION['errors'] = "You need to fill out the whole form!";
 		$_SESSION['error_type'] = 2;
 		header("Location: index.php");
@@ -322,8 +323,8 @@ function login_check($username,$password)
 		}
 	
 	/* Check if the username exist in the database*/	
-	else if(!user_exist($username)){
-		$_SESSION['errors'] = "Username does not exist!";
+	else if(!email_exist($email)){
+		$_SESSION['errors'] = "Email does not exist!";
 		$_SESSION['error_type'] = 2;
 		header("Location: index.php");
 		exit();
@@ -331,12 +332,12 @@ function login_check($username,$password)
 	
 	/* Attempt to sign in member. If unsuccessful, the username (account id) and pass was not valid */
 	else{
-		if(login($username,$password) == true){
+		if(login($email,$password) == true){
 			header("Location: index.php");
 			exit();}
 		
 		else{
-			$_SESSION['errors'] = "Invalid Account ID and Password!";
+			$_SESSION['errors'] = "Invalid Email ID and Password!";
 			$_SESSION['error_type'] = 2;
 			header("Location: index.php");
 			exit();
@@ -350,13 +351,13 @@ function login_check($username,$password)
 * @return True if we successful logged in a member
 * @return False if we are unsuccessful
 */
-function login($username,$password)
+function login($email,$password)
 {
 	global $connection;
 	
 	$login = false;
 	
-	$query = mysqli_query($connection,"SELECT * FROM user WHERE username = '$username'") or die();
+	$query = mysqli_query($connection,"SELECT * FROM user WHERE email = '$email'") or die();
 	
 	while($row = mysqli_fetch_array($query)){
 		
@@ -377,7 +378,7 @@ function login($username,$password)
 	{
 		unset($row['salt']);
 		unset($row['password']);
-		$_SESSION['user'] = $username;
+		$_SESSION['user'] = $email;
 		$_SESSION['user_id'] = $user_id;
 		return true;
 	}

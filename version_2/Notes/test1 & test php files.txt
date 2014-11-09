@@ -1,4 +1,0 @@
-Test File is a model that I made homepage. I was thinking about a header, then display the top 6 upcoming events, the 6 most recent 
-events and so on. However, this is not functional at all. Yet.
-
-Test1 File is nothing. 

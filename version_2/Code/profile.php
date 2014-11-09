@@ -38,7 +38,7 @@ else{
 
 			echo "You are now viewing ".$username."'s profile page!<br>";
 			//display the user's profile picture
-			echo "<img src='profiles/".$id."_".$username."/default_profile.png'>";
+			echo "<img src='profiles/".$id."_".$username."/default_profile.png' height='150px' width='150px'><br>";
 			//display the user's username & email address
 			echo $username." (".$email.")<br>";
 			//link to settings page (change password & account picture)

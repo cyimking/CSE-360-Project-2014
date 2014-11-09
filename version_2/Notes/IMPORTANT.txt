@@ -3,19 +3,6 @@ For this version to work, you must update the Database (PHPMYADMIN) or you will 
 Also, delete all entrees from all the tables. So delete all your members, events, and events booked. Mainly because this system have
 alot of upgraded features and some enhanced security (such as password hash). 
 
-What needs to be done now?
-- Profile Image Feature which Bakram is working on now.
-- Events Picture Feature which I am working on now. Should be updated tomorrow. 
-- Make changes to register / sign in. The ACCOUNT ID is suppose to be the email not the username. So i have to fix. Simple fix
-- Event Display should display the image of the event! I was thinking about something like the test.php file then set up pagination,
-so page 1, page 2, etc...
-- Unit Testing. 
-
-Warning
-- I added Javascript to certain areas and I got the code online and modified it. Mainly to use as helper functions. Thus the 
-main.js file is going to be SUPER messy. Do not open and make changes to it, unless you know alot about javascript. Once SAT
-comes and we submit, we should focus on making the design better. So the profile area and the homepage, etc..
-
-
-Extra
-- The CSS is not neat yet. You will see some files have <style> css code... </style>. I will make it more neat tomorrow! 
+Updates
+- Adding the images to the DB for events have not been added yet! 
+- Unit Testing isn't added as well

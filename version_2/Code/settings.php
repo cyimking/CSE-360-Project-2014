@@ -1,92 +1,96 @@
+<?php 
+
+include 'process/header.php'; 
+	
+/* You are not signed in so please sign in :-)*/
+
+if(check_session() == false){
+	echo "You must be signed in to view this page. Please <a href='index.php'>Sign In </a>Here ";
+}
 
 
-
-<?php
-/*********************************************************************
- *********************************************************************
- * Setting File - upload the pictures file           *
- * Version 1.0.0 (Status - Complete)                                 *
- 	 * All functions are located "process / event_functions.php      *
- *********************************************************************
- *********************************************************************
- */
-?>
-
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" href="css/main.css" />
-
-
-<?php
-$homepage = true; //By default we are on the "index" page
-
-/* Check if the session is set, if not then set it and include the header file */
-if(!isset($_SESSION))
-    {
-		$homepage = true;
-		include "process/header.php";
+	
+if(isset($_POST['upload'])) {
+	
+	$username = $_SESSION['user'];
+	$query = mysqli_query($connection,"SELECT username FROM user WHERE email= '$username'");
+	
+	while($row = mysqli_fetch_array($query))
+	{
+		$username = $row['username'];
+	}
+	
+	$upload_check = 1;
+	$user_id = $_SESSION['user_id'];
+	$image_name = $_FILES['image']['name'];
+    $image_type = $_FILES['image']['type'];
+    $image_size = $_FILES['image']['size'];
+    $image_tmp_name = $_FILES['image']['tmp_name'];
+	$target_dir = "profiles/".$user_id. "_".$username . "/" .$image_name;
+	$target_file = $target_dir . basename($_FILES["image"]["name"]);	
+	$imageFileType = explode('.',$image_name);
+	$imageFileType = strtolower(end($imageFileType));
+	$all_ext = array('png','jpeg','gif','jpg');
+			
+	if($image_name == '') {
+            echo "<br><script>alert('please select the image!!')</script>";
+			die("Must enter an image! Please try again on the settings page");
+        }		
+			
+    //Check if the file is a image or not
+	$check = getimagesize($_FILES["image"]["tmp_name"]);
+	
+    if($check !== false) {
+        $upload_check = 1;
+    } 
+	else {
+        echo "File is not an image.";
+        $upload_check = 0;
     }
 
-include "process/event_functions.php";
+	if(in_array($imageFileType,$all_ext) != true)
+	{
+		echo "Incorrect File Extension!";
+		$upload_check = 0;
+	}
+       
+	else if ($_FILES["image"]["size"] > 500000) {
+    		echo "<br>Sorry, your file is too large.";
+    		$upload_check = 0;	
+		}
 
+	if($upload_check == 0)
+		{
+			echo "<br>Sorry we can not upload the file :-/";
+		}
+		
+    else
+		{	
+			$image_name = "default_profile.png";
+        	move_uploaded_file($image_tmp_name, "profiles/".$user_id. "_".$username . "/" .$image_name);
+			echo "<br>image Uploaded Successfully. <br><br> here is your Image <br>";
+		}
+    }
+	
 ?>
 
-<!-- These functions will be moved onto the JS function! -->
-<!-- Load jQuery from Google's CDN -->
-    <!-- Load jQuery UI CSS  -->
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-
-    <!-- Load jQuery JS -->
-    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-    <!-- Load jQuery UI Main JS  -->
-    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-
-<script>
-  $(document).ready(
-
-  /* This is the function that will get executed after the DOM is fully loaded */
-  function () {
-    $( "#datepicker" ).datepicker({
-      changeMonth: true,//this option for allowing user to select month
-      changeYear: true //this option for allowing user to select from year range
-    });
-  }
-);
-
-</script>
-</head>
-
-
-<body>
-<div id="wrapper">
-
-<?php
-
-/* Check for an error session. If found, displayed errors.
-* Error Type == 3 = Add Event Error
-*/
-if(isset($_SESSION['errors']) && isset($_SESSION['error_type'])){
-	$errors = $_SESSION['errors'];
-	$error_type = $_SESSION['error_type'];}
-
-?>
-you can upload your images here
-
-<form action="upload.php" method="post" enctype="multipart/form-data">
-    <p><p>Select image to upload:<p></p>
-    <input type="file" name="fileToUpload" id="fileToUpload">
-    <input type="submit" value="Upload Image" name="submit">
-</form>
-
-<img src="default_profile.png" alt="" style="width:204px;height:228px">
 
 
 
-<br />
-<br />
-</div>
-</body>
-</html>
+
+
+<html>
+    <head>
+        <title>Settings</title>
+    </head>
+    <body>
+
+    <form action="settings.php" method="post" enctype="multipart/form-data">
+        <br><b>Please select the image:<br> 
+        <input type="file" name="image" id="image">
+        <input type="submit" name="upload" value="Upload Now">
+    </form>
+ 
+
+    </body>
+    </html>

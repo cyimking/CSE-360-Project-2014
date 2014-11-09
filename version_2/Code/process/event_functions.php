@@ -18,8 +18,10 @@ function display_events()
 		
 	else
 	{
-		echo "  <br><table id='event_table' align ='center'>
+		echo "  <br>View all your purchase events <a href='profile.php?id=".$_SESSION['user_id']."'>HERE</a>
+				<br><table id='event_table' align ='center'>
 				<tr>
+				<th>Event Logo</th>
 				<th>Title</th>
 				<th>Type</th>
 				<th>Venue</th>
@@ -33,15 +35,27 @@ function display_events()
 		{
 			/* Check if the user can purchase a ticket!*/ 
 			// note to self! Check if the current date is greater than the DB date. 
+			$puchase_c = 0;
+			
 			$check_tickets = $row['max_tickets'] - $row['tickets_bought'];
 			if($check_tickets != 0) $purchase = "<a href='events.php?action=purchase&do=".$row['event_id']."'>Buy</a>";
-			else $purchase = "Sold Out!";
+			else{ 
+				$purchase = "Sold Out!";
+				$puchase_c = 1;
+			}
 			
-			if(time() > $row['date_of_event']) $purchase = "Event Passed";
+			if(time() > $row['date_of_event'])
+			{
+				 $purchase = "Event Passed";
+				$puchase_c = 1;
+			}
+			
+			if($puchase_c == 0){
 			
 			echo 
 			"
 				<tr>
+				<td><img src='css/images/user_taken.png'></td>
 				<td>".clip_string($row['title'], 20)."</td>
 				<td>".clip_string($row['type'], 20)."</td>
 				<td>".clip_string($row['venue'], 20)."</td>
@@ -52,7 +66,7 @@ function display_events()
 			";
 			
 		}
-		
+		}
 		echo "</table>";
 		
 	}
@@ -76,6 +90,9 @@ function check_add_event($title,$type,$venue,$description,$date,$start_time,$end
 		
 	if($ticket_name == NULL)
 		$ticket_name = "Default Tickets";
+	
+	if($max_tickets_pp == NULL)	
+		$max_tickets_pp = $max_tickets;
 	
 	/* Check if the form was filled all the way! */
 	if($type == "" || $type == "" || $venue == "" || $date == "" || $start_time == "" || $end_time == ""  || $max_tickets == "" || $max_tickets_pp == ""){
@@ -161,21 +178,21 @@ function check_add_event($title,$type,$venue,$description,$date,$start_time,$end
 		header("Location: events.php?action=create_event");
 		exit();
 	}
-	
+
 	else
 		if(add_event($title,$type,$venue,$description,$date,$start_time,$end_time,$ticket_name,$max_tickets,$max_tickets_pp)){
-			header("refresh:3; url=events.php");
-			echo "<br><h1>You have successfully added an event! You will be redirected now.</h1>";
+			//header("refresh:3; url=events.php");
+			//echo "<br><h1>You have successfully added an event! You will be redirected now.</h1>";
 			unset($_SESSION['errors']);
 			unset($_SESSION['error_type']);
-			exit();
+			return true;
 		}
 		
 		else
 			die("System Failure. It rarely happens but when it do - it our fault.");
 	}
 		
-	
+
 
 /* 
 * Add the event to DB
@@ -191,6 +208,7 @@ function add_event($title,$type,$venue,$description,$date,$start_time,$end_time,
 	$new_date = $date . " " . $start_time;
 	$new_date = strtotime($new_date);
 	$end_time = strtotime($end_time);
+	
 	
 	$query = mysqli_query($connection, "INSERT INTO events (user_id,title,event_description,	
 												type,venue,date_of_event,event_ending_time,date_of_creation,
@@ -229,7 +247,7 @@ function display_add_event_table()
 		<div id='create_event'>
 
 		<br><br>
-		<form name='Create Event' method='post' action='events.php'> 
+		<form name='Create Event' method='post' action='events.php' enctype='multipart/form-data'> 
 
 	<div id='event_details'>
 		<span id='step1_design'>1</span>
@@ -244,7 +262,7 @@ function display_add_event_table()
 		<br>
 		<div id='uploadBtn' class='file_event' style='margin: 0 auto;'>
 		<span class='uploadBtn1'>Browse</span>
-		<input type='file' class='file_button' onchange='readURL(this);' >
+		<input type='file' class='file_button' name='image' id='image' onchange='readURL(this);' >
 		</div>
 
 		<p style='font-size:20px'>Type of Event *</p>
@@ -309,11 +327,11 @@ function display_add_event_table()
 		<h1 style='margin-top: -50px; text-align: left; font-weight: lighter; font-size: 24px; padding: 6px'>
 		<span style='margin-left: 5px;'>Tickets Information *</span></h1>
 		<p style='font-size:20px;'>Ticket Name (Optional)</p>
-		<input type='text' size='90%' name='ticket_name' maxlength='16' class='register_input' placeholder='Name of your Ticket...' style='padding: 15px; font-size: 16px'>
+		<input type='text' size='90%' name='ticket_name' maxlength='16' class='register_input' placeholder='Name of your Ticket...' style='padding: 15px; font-size: 16px' disabled>
 		<p style='font-size:20px;'>Ticket Available *</p>
 		<input type='text' size='10%' name='max_tickets' class='register_input' required='required' placeholder='Max Tickets' style='padding: 15px; font-size: 16px;text-align: center'>
 		<p style='font-size:20px' title='How many tickets can someone purchase?' >Maximum Tickets Per Purchase *</p>
-		<input type='text' name='max_tickets_purchase' size='10%' class='register_input' placeholder='Max Purchase' style='padding: 15px; font-size: 16px;text-align: center'>
+		<input type='text' name='max_tickets_purchase' size='10%' class='register_input' placeholder='Coming Soon' style='padding: 15px; font-size: 16px;text-align: center' disabled>
 	</div>
 
 <br><br>
@@ -331,7 +349,7 @@ function display_add_event_table()
 			<input type='submit' value='Create Event' name='submit' class='file_event' style='width: 	auto;background-color:#00a300;border:#00a300;cursor:pointer;padding: 10px;'>
 		</div>
 		<div>
-			<span style='font-size:20px'>Wanna Preview?</span><br>
+			<span style='font-size:20px'>Preview Event</span><br>
 			<input type='submit' value='Coming Soon' name='submit' class='file_event' style='width:auto;background-color:#0178B8;border:#0178B8;cursor:pointer;padding: 10px' disabled>
 		</div>
 	</div>
@@ -444,6 +462,10 @@ function display_purchase($event_id)
 			$date = date('m/d/y',$row['date_of_event']);
 			$time = date('h:i A',$row['date_of_event']);
 			$tickets_left = $row['max_tickets'] - $row['tickets_bought'];
+			$end_time = date('h:i A',$row['event_ending_time']);
+			
+			if(time() > $row['date_of_event']) die("Event Passed!");
+			
 			}
 		
 		
@@ -492,9 +514,15 @@ function display_purchase($event_id)
 			</tr> 
 
 			<tr> 
-			<td>Time</td> 
+			<td>Start Time</td> 
 			<td>:</td> 
 			<td>'.$time.'</td> 
+			</tr> 
+			
+			<tr> 
+			<td>Ending Time</td> 
+			<td>:</td> 
+			<td>'.$end_time.'</td> 
 			</tr> 
 		
 			<tr> 
