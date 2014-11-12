@@ -55,7 +55,7 @@ function display_events()
 			echo 
 			"
 				<tr>
-				<td><img src='css/images/user_taken.png'></td>
+				<td><img src='css/images/events/".$row['event_logo']."' height='150px' width='150px'></td>
 				<td>".clip_string($row['title'], 20)."</td>
 				<td>".clip_string($row['type'], 20)."</td>
 				<td>".clip_string($row['venue'], 20)."</td>
@@ -231,11 +231,6 @@ function display_add_event_table()
 	global $error_type;
 	global $errors;
 	
-	if($error_type == 3){
-	echo "<br><div align='center' style='color: red'>" . $errors . "</div>";
-	unset($_SESSION['errors']);
-	unset($_SESSION['error_type']);
-	}
 	
 	echo"
 		<div id='content_top'>
@@ -247,8 +242,15 @@ function display_add_event_table()
 		<div id='create_event'>
 
 		<br><br>
-		<form name='Create Event' method='post' action='events.php' enctype='multipart/form-data'> 
-
+		<form name='Create Event' method='post' action='process/add_event.php' enctype='multipart/form-data'> 
+	";
+	
+	if($error_type == 3){
+		echo "<br><div align='center' style='color: red'>" . $errors . "</div><br>";
+		unset($_SESSION['errors']);
+		unset($_SESSION['error_type']);
+		}
+	echo "
 	<div id='event_details'>
 		<span id='step1_design'>1</span>
 		<br>

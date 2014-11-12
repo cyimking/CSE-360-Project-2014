@@ -1,0 +1,16 @@
+How to install:
+
+- Download WAMP from "http://www.wampserver.com/en/" This will install the latest version of PHP, MYSQL, and APACHE
+- Set up configuration for WAMP. For most cases, go to the wamp folder/ www/ index.php and open it. Change line 30 to true.
+- Download this project (the latest version so V2), create a folder for this project, upload all the code files into this folder, then upload the folder into the www folder.
+So it should be wamp/www/cse_310/#ourcode
+
+- Now, under our project, open up process/config.php and make the password change. If you are downloading wamp for the first time, 
+then your password will be empty, so change the password variable to ''; Do not add in a space unless your password is literally a 
+space.
+
+- Now, you have to add in the database tables. Look at the pictures and add EVERYTHING IN correctly or it will not work. If it's 
+your first time on PHPMYADMIN, then the A_I checkbox means auto_increment, and the first 'id' per table should be primary to avoid
+duplicates. 
+
+- Once you added everything in, then the project will work. 
