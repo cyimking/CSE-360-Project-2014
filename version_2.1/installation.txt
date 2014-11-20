@@ -1,0 +1,27 @@
+Version 2.1 Installation Guide
+
+Part 1
+- Copy the Profile Folder (that contains all the users + user profile pictures) and move it to a secure location temporary. 
+So your desktop, if you have the room!
+
+- Select all your code from the directory (your directory where all the files are located) and delete them.
+
+- Upload the code listed in the "CODE" folder into your folder. 
+
+- You should have 4 folders (css,js,process,and profiles), .htaccess, a favico file and 8 php files in the main root. 
+
+- Post your Profile Folder back into the directory to overwrite the profile folder from the code folder. 
+This should keep all the users' folders and their profile pics intact. 
+
+Part 2 (Enabling MOD REWRITE)
+- Go to WAMP/BIN/APACHE/APACHE2.4.9/conf/httpd 
+NOTE - Your Apache Version may be different (APACHE2.5.1 for example), but it's fine. You will still see the conf folder.
+
+- Open up httpd (it's a conf file, so open in notepad)
+
+- On line 154 UNCOMMENT the line.
+
+So it will look like this #LoadModule rewrite_module modules/mod_rewrite.so
+So remove the '#' so it will look like this LoadModule rewrite_module modules/mod_rewrite.so
+
+- Save
