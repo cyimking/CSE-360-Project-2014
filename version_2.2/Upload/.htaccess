@@ -1,0 +1,16 @@
+Options +FollowSymlinks
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-s 
+RewriteCond %{REQUEST_FILENAME} !-l 
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule ^([^/]*)\.php$ /CSE_310/events.php?action=$1 [NC]
+
+
+
+RewriteCond %{REQUEST_FILENAME} !-s 
+RewriteCond %{REQUEST_FILENAME} !-l 
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]*)$ /CSE_310/profile.php?id=$1 [L]
+

@@ -1,0 +1,139 @@
+@charset "utf-8";
+/* Settings Stylesheet */
+
+p{
+	font-weight: lighter;
+	padding: 0;
+	margin: 0;
+	text-align: left;
+}
+		
+.setting_input{
+	padding: 10px;
+	margin: 5px;
+	border: #C0C0C0 1px solid;
+	border-radius: 3px;
+	color: #333;
+	width: 200%;
+	line-height: 25px;
+}
+		
+#settings_profile_avatar{
+	border-radius: 3px;
+	height: 150px; 
+	width: 150px;
+}
+
+.file_event{
+	position: relative;
+	overflow: hidden;
+	margin: auto 0;
+	width: 75px;
+	color: white;
+	background-color: #D5D5D5;
+	border: 1px solid #D5D5D5;
+	border-radius: 3px;
+	padding: 5px;
+	margin: 5px;
+}
+
+.file_event input.file_button{
+	position:absolute;
+	top: 15px;
+	right: 15px;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	cursor:pointer; 
+}
+
+input.file_button{
+	z-index: 10;
+}
+
+#settings_upload{
+	width: auto;
+	background-color:#bdd787;
+	border:#00a300;
+	cursor:pointer;
+	padding: 10px;
+	border-radius: 3px;
+	color: white;
+}
+
+#p_settings_upload{
+	width: auto;
+	background-color:#79CDCD;
+	border:#00a300;
+	cursor:pointer;
+	padding: 10px;
+	border-radius: 3px;
+	color: white;
+}
+
+#wrap{
+	width: 78%;
+	min-height: 556px;
+	margin: 0 auto;
+	padding-top: 10px;
+}
+
+#sidebar{
+	float: left;
+	border: 1px solid #D8D8D8;
+	border-radius: 3px;
+	width: 25%;
+	background: white;
+	color: #09F;
+	text-align: left;
+}
+
+#main{
+	float: right;
+	border: 1px solid black;
+	width: 70%;
+	border: 1px solid #D8D8D8;
+	border-radius: 3px;
+	text-align: center;
+}
+
+#main_header{
+	padding: 6px 15px;
+	background: #f2f2f2;
+	font-weight: bold;
+	margin: 0px;
+	font-size: 14px;
+	border-bottom: #D8D8D8 1px solid;
+}
+
+#main_content{
+	padding: 10px;
+}
+
+#sidebar_header{
+	padding: 6px 15px;
+	background: #f2f2f2;
+	font-weight: bold;
+	margin: 0px;
+	font-size: 14px;
+}
+
+.sidebar_menu_item{
+	padding: 6px 15px;
+	text-decoration: none;
+	border-top: #D8D8D8 1px solid;
+	position: relative;
+	display: block;
+	-webkit-transition: all linear  .3s;
+	-moz-transition: all linear  .3s;
+	-ms-transition: all linear  .3s;
+	-o-transition: all linear  .3s;
+	transition: all linear  .3s;
+}
+
+.sidebar_menu_item:hover{
+	background: #f2f2f2;
+}
+
+#sidebar_bar_active{
+	font-weight: bold;
+}

@@ -1,0 +1,100 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="css/main.css" />
+<link rel="icon" type="image/ico" href="favico.ico"/>
+
+
+			<div id='header'>
+			 <span id='primary_links_left_end_logo' style='margin: -10px;position:absolute; left: 0px '><a href='index.php'>
+			<img src='http://icons.iconarchive.com/icons/dapino/cute-chicken/48/party-chicken-icon.png'></a></span>			 
+			 <span id='primary_links_right_end'><a href='index.php' class='login_button'> Sign In or Create Account </a> </span>  &nbsp;
+			 </div>
+		      <title>Homepage</title>
+</head>
+
+<body>
+<div id="wrapper">
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
+<script src="main.js"></script>	
+
+
+
+		<br>
+		<div id="sign_in">
+		<h1>Sign In </h1>
+		<hr>
+
+		Please fill the form below to create a new free Account.
+		<br>	
+		<br>
+		<form name="Sign In" method="post" action="members.php"> 
+		
+		<input type="text" size="70%" name="email" placeholder="Account ID (Email Address)" class="register_input" style="position:relative; margin-left: 10px"
+		required="required">
+		<span style="position:absolute;padding:7px;">Recover Account ID: <a href="#">Here </a></span><br>
+		
+		<input type="password" size="70%" name="pass" placeholder="Password" class="register_input" style="position:relative; margin-left: 10px"
+		required="required">
+		<span style="position:absolute;padding:7px;">Forgot Password? <a href="#">Recover it</a></span><br>
+		
+		<input type="submit" value="Sign In" name="submit" id="sign_in_submit">
+		</form>
+		</div>
+
+		
+		<br>
+		<div id="create_account">
+		<h1>Create Account </h1>
+		<hr>
+
+		Please fill the form below to create a new free Account.
+		<br>
+		
+		<br>
+		<form name="Create Account" method="post" action="members.php"> 
+		
+		<input type="text" size="70%"  placeholder="Account ID (Username)" class="register_input" id="username" name="username" 
+		style="position:relative; margin-left: 10px" required="required">
+		<span id="message" style="position:absolute;padding:7px;" ></span><br>
+
+		<input type="email" size="70%"  placeholder="Email" class="register_input" id="email" name="email_reg" 
+		style="position:relative; margin-left: 10px" required="required">
+		<span id="message_email" style="position:absolute;padding:7px;" ></span><br>
+
+		<!-- <input type="text" size="70%"  placeholder="First Name" class="register_input"><br>
+		<input type="text" size="70%"  placeholder="Last Name" class="register_input"><br> -->
+
+		<input type="password" size="70%" placeholder="Password" name ="password" class="register_input" id="password"
+		 style="position:relative; margin-left: 10px" required="required">
+		<span id="password_strength" style="position:absolute;padding:7px;" ></span><br>
+
+		<input type="password" size="70%" placeholder="Password Confirmation" class="register_input" id="password2" name ="password2"
+		 style="position:relative; margin-left: 10px" required="required">
+		<span id="validate-status" style="position:absolute;padding: 7px"></span>
+		<br>
+		<input type="submit" value="Create Account" name="submit" id="register_input_submit_fail">
+		<br>
+		<span id="submit_t"></span>
+		</form>
+		</div>
+		
+
+</div>
+ </body>
+
+<div id="footer">
+<div class='footer_text'>
+Created by Lamar, Bikram and Ian. Enjoy!
+</div>
+</div>
+
+
+</html>

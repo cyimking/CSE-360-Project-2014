@@ -1,0 +1,100 @@
+Functional Testing.
+
+Notes
+- Due to PHPBroswer having issues with php redirect and not being able to upload files, I couldn't test the add event function. 
+- This project does not use any PHP Frameworks neither, so do not expect a broswer to pop up and show you what's happening. 
+- You will need to make some changes to the testing files to ensure that their is a valid event to buy tickets from. View Below... 
+- Since the project is testing new member's registrations and purchasing tickets, you will have to go to the files and change the username PER test to ensure 
+that you are trying to purchase tickets for a valid event and you are not trying to add in an existed member. View Below... 
+
+-MAKE SURE YOU CREATE AN EVENT BEFORE TESTING!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+- If you received errors then it's because of the variable being there but I doubt it will even happen. If so then you will have to manually replace the 
+variables with strings in the code ($I->something). 
+
+
+-------------------------------------------------------------------------------------------------
+Modified Files to Avoid Errors
+- To avoid stupid errors such as in no tickets are able for purchasing or member already exist, you will have to make some key changes to the files.
+- I tried to make things easy so all you have to do is edit the variables per file (edit all to make sure it's error free)
+- All the files are located in /bin/tests/functional
+
+
+Avoid Errors for BuyingEventsCept.php
+	1. Open File
+	2. Update the top 4 variables for registrating a member. Make sure the Username is not already registered, the email isn't registed and the password is 
+		acceptable (so between 6 - 16 characters, so Testing24 is an ideal password) and make sure the password and password2 matches!
+
+Avoid Errors for BuyingEvents_2Cept.php
+	1. Open File
+	2. Copy the user, email, and pass variables to this section. Also add in a new_username but make sure it doesn't ready exist.
+	
+
+Avoid Errors for BuyingEvents_3Cept.php
+	1. Open File
+	2. Copy all 4 variables from the buyingevents_2cept.php file to this section
+
+
+Avoid Errors for ErrorCept.php
+	1. Open File
+	2. Make sure the email and pass variables are a wrong signin combination
+	3. Make sure the user variable is an existing Username Name
+
+Avoid Errors for the TestingCept.php
+	1. Make sure you create an event
+	2. Get a valid event ID. You can do this by going to PHPMYADMIN -> cse310 -> events -> event_id. The event must allow user to purchase atleast 4 tickets
+		and have a good amount of tickets left. To make things easier, when creating an event, simply allow the max tickets to be 1000 and allow the user
+		to purchase up to 10 tickets
+	3. Update the email and pass variabels with a valid email + password combination to signin 
+	4. Update the event_id variable with a valid event ID number
+
+
+-------------------------------------------------------------------------------------------------
+What is being tested?
+- TestingCept.php
+	1. Guest is not signed in and goes to the settings page
+	2. He will see an error so he will click the SIGN IN Link to sign in
+	3. Guest will Sign In as Joe and Purchase 4 Tickets to an Event 
+	4. He will see the success text then sign out!
+
+- BuyingEventsCept.php (Part 1)
+	1. Guest Registrar Account. 
+	~ Due to PHPBROSWER BUG, the redirect was all screwy so I had to make another TEST FILE (aka Part 2)
+
+- BuyingEvents_2Cept.php (Part 2)
+	1. New Member Signs In
+	2. Once Signed In, User will click their name which takes them to the profile page 
+	3. Verify that the user is on the correct page.
+	4. User will click the Settings Page 
+	5. User will click the Account Settings Link
+	6. User will change his username
+
+- BuyingEvents_3Cept.php (Part 3)
+	1. User signs in
+	2. User will now click his new username link in the header
+	3. Verify that the user is on the correct page.
+	4. Change his username back to the first username
+
+- ErrorCept.php 
+	1. Try to signin with an invalid email + password combination
+	2. Try to registrar with an existed username
+
+
+-------------------------------------------------------------------------------------------------
+How to test?
+	1. Know the directory of this project. So if it's under wamp/www/CSE_360_group11 then that's the directory of this project. 
+	2. Open cmd 
+	3. Type 'cd C:\wamp\www\CSE_360_group11\bin' 
+	4. Type 'php codecept.phar run'
+	5. This will run the code! 
+
+Note
+	1. I haven't tested this code on another machine, so I do not know if you have to install codecept.phar and phpunit.phar again but I doubt it since I already
+installed it onto this project locally. If so then check out the videos online and install codecept.phar / phpunit.phar under the bin folder. 
+
+
+
+
+
+	

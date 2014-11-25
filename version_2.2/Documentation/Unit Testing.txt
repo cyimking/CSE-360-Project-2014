@@ -1,0 +1,4 @@
+Unit Testing
+
+- Since UNIT Testing was not apart of this assignment (6) then I will not include an installation file. However, you can unit test the members file. PHPUNIT requires
+major changes for the event functions so if required, I will make the changes but since this was graded in the last assignment, I do not think it is neccessary!

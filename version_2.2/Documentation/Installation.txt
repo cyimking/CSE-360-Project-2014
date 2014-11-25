@@ -1,0 +1,45 @@
+How to Install Software )
+
+	WAMP CONFIGURATION
+---------------------------------------------------------------------------------
+	1. Download WAMP (for windows machines) if you haven't downloaded it before. (http://www.wampserver.com/en/)
+	2. Set up configuration for WAMP. For most cases, go to the wamp folder/ www/ index.php and open it. Change line 30 to true.
+	3. Enable mod_rewrite. 
+		* Go to WAMP/BIN/APACHE/APACHE2.4.9/conf/httpd 
+			NOTE - Your Apache Version may be different (APACHE2.5.1 for example), but it's fine. You will still see the conf folder.
+		* Open up httpd (it's a conf file, so open in notepad)
+		*On line 154 UNCOMMENT the line.
+			So it will look like this #LoadModule rewrite_module modules/mod_rewrite.so
+			So remove the '#' so it will look like this LoadModule rewrite_module modules/mod_rewrite.so
+		* Save
+
+	SOFTWARE INSTALLATION
+----------------------------------------------------------------------------------
+	1. Under Wamp / www, create a folder for the project. You can name it CSE_360_Group11 (it really doesn't matter on the name). 
+		* So now it should be C:/wamp/www/CSE_360_Group11/ (or what you named it).
+	2. Open up the Upload Folder and Upload the Files into the CSE_360_Group11 Folder. 
+		* If uploaded correctly, you should be able to see C:/wamp/www/CSE_360_Group11/bin, etc... 
+		* The root should have 6 Folders, 8 PHP Files, a .htaccess file, and a favico file
+	3. Now, under our project, open up process/config.php and make the password change. If you are downloading wamp for the first time, 
+		then your password will be empty, so change the password variable to ''; Do not add in a space unless your password is literally a space.
+		If your password is not '' then make the correct password change. 
+	4. Last thing to do is set up the MYSQLI DB!
+
+
+	MySQL CONFIGURATION
+-----------------------------------------------------------------------------------
+	1. Now, you have to add in the database tables. Look at the images folder and add EVERYTHING IN correctly or it will not work. If it's 
+		your first time on PHPMYADMIN, then the A_I checkbox means auto_increment, and the first 'id' per table should be primary to avoid duplicates. 
+	2. If you do not know how to do this, then:
+		* go to localhost -> click phpmyadmin (under Your Aliases) -> Click "new" -> The Name is 'cse310' 
+		* Click cse310 
+		* View the image folder and look at all the 3 images. The first image is events, so for the name of the table type 'events' and for the amount of 
+			columns, type 14.
+	3. Make sure to add in all 3 tables or ELSE IT WILL NOT WORK!!!
+
+
+	How to Use
+-----------------------------------------------------------------------------------
+	1. Once everything is installed, then simply go to the project. So http://localhost/CSE_310/ (or whatever folder you named it). 
+	2. If any DB errors are presented then checky you DB Tables to ensure that everything matches the images in the images folder. 
+ 
